@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>XSS Demo</title>
+  <meta charset="UTF-8">
+  <title>XSS Vulnerability Demo</title>
 </head>
 <body>
-    <h1>XSS Test Page</h1>
-    <p>Welcome, <span id="output"></span></p>
+  <h1>XSS Test Page</h1>
+  <p>Welcome,</p>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
-        document.getElementById("output").innerHTML = name;
-    </script>
+  <!-- Injected XSS Script -->
+  <script>
+    alert("✅ XSS Vulnerability Detected! This is a demo alert.");
+    document.body.innerHTML += "<p style='color:red;font-weight:bold;'>⚠️ This site is vulnerable to XSS!</p>";
+  </script>
 </body>
 </html>
